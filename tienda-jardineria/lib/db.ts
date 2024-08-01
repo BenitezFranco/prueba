@@ -1,4 +1,6 @@
 import mysql from 'mysql';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -9,10 +11,10 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
   if (err) {
-    console.error('Error connecting to the database:', err.stack);
+    console.error('Error connecting to the database:', err);
     return;
   }
-  console.log('Connected to the database.');
+  console.log('Connected to the database');
 });
 
 export default connection;
